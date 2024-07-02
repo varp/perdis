@@ -1,3 +1,3 @@
-module vardan.dev/perdis
+module go.vardan.dev/perdis
 
 go 1.22.2
