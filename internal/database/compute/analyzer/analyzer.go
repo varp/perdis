@@ -29,7 +29,7 @@ func (a *Analyzer) Analyze(queryTokens []string) (Query, error) {
 	commandArgs := queryTokens[1:]
 	command := getCommandIDByName(commandName)
 
-	if command == commandUnknownID {
+	if command == CommandUnknownID {
 		a.logger.Error(
 			"unknown command was passed",
 			"command", commandName,
@@ -38,7 +38,7 @@ func (a *Analyzer) Analyze(queryTokens []string) (Query, error) {
 	}
 
 	switch commandName {
-	case commandDel, commandGet:
+	case CommandDel, CommandGet:
 		if len(commandArgs) == 0 || len(commandArgs) > 1 {
 			a.logger.Error(
 				"invalid arguments passed",
@@ -47,7 +47,7 @@ func (a *Analyzer) Analyze(queryTokens []string) (Query, error) {
 			)
 			return Query{}, errAnalyzerInvalidCommand
 		}
-	case commandSet:
+	case CommandSet:
 		if len(commandArgs) < 2 {
 			a.logger.Error(
 				"invalid arguments passed",

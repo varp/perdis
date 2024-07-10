@@ -1,17 +1,24 @@
 package parser
 
-import "log/slog"
+import (
+	"errors"
+	"log/slog"
+)
 
 type Parser struct {
 	logger *slog.Logger
 	sm     *stateMachine
 }
 
-func NewParser(logger *slog.Logger) *Parser {
+func NewParser(logger *slog.Logger) (*Parser, error) {
+	if logger == nil {
+		return nil, errors.New("non nil logger required")
+	}
+
 	return &Parser{
 		logger: logger,
 		sm:     newStateMachine(),
-	}
+	}, nil
 }
 
 func (p *Parser) ParseQuery(query string) ([]string, error) {

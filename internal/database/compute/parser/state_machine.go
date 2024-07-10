@@ -69,14 +69,16 @@ func (sm *stateMachine) parse(input string) ([]string, error) {
 
 	// calling to collect the last word, if any
 	sm.triggerEvent(eventSpace, '\n')
-	return sm.tokens, nil
+	tokens := sm.tokens
+	sm.tokens = make([]string, 0)
+	return tokens, nil
 }
 
 func (sm *stateMachine) getEvent(character byte) (int, error) {
 	if isLetter(character) {
-		sm.triggerEvent(eventLetter, character)
+		return eventLetter, nil
 	} else if isSpace(character) {
-		sm.triggerEvent(eventSpace, character)
+		return eventSpace, nil
 	}
 
 	return 0, errParserInvalidCharacter

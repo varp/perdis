@@ -1,24 +1,24 @@
 package analyzer
 
 const (
-	commandUnknownID = iota
-	commandSetID
-	commandGetID
-	commandDelID
+	CommandUnknownID = iota
+	CommandSetID
+	CommandGetID
+	CommandDelID
 )
 
 const (
-	commandUnknown = "UNKNOWN"
-	commandSet     = "SET"
-	commandGet     = "GET"
-	commandDel     = "DEL"
+	CommandUnknown = "UNKNOWN"
+	CommandSet     = "SET"
+	CommandGet     = "GET"
+	CommandDel     = "DEL"
 )
 
 var commandNamesToID = map[string]int{
-	commandUnknown: commandUnknownID,
-	commandSet:     commandSetID,
-	commandGet:     commandGetID,
-	commandDel:     commandDelID,
+	CommandUnknown: CommandUnknownID,
+	CommandSet:     CommandSetID,
+	CommandGet:     CommandGetID,
+	CommandDel:     CommandDelID,
 }
 
 func getCommandIDByName(commandName string) int {
