@@ -100,7 +100,12 @@ func TestAnalyzer_Analyze(t *testing.T) {
 			args:   args{queryTokens: []string{"REPLACE", "key1", "newValue"}},
 			want:   Query{},
 			wantErr: func(t assert.TestingT, err error, args ...interface{}) bool {
-				return assert.ErrorIs(t, err, errAnalyzerUnknownCommand, "error must be errAnalyzerUnknownCommand")
+				return assert.ErrorIs(
+					t,
+					err,
+					errAnalyzerUnknownCommand,
+					"error must be errAnalyzerUnknownCommand",
+				)
 			},
 		},
 	}

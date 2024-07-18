@@ -3,11 +3,12 @@ package database
 import (
 	"errors"
 	"fmt"
+	"log/slog"
+
 	"go.vardan.dev/perdis/internal/database/compute/analyzer"
 	"go.vardan.dev/perdis/internal/database/compute/parser"
 	"go.vardan.dev/perdis/internal/database/storage"
 	"go.vardan.dev/perdis/internal/database/storage/memory"
-	"log/slog"
 )
 
 const (
